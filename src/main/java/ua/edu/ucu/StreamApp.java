@@ -1,5 +1,9 @@
 package ua.edu.ucu;
 
+import ua.edu.ucu.function.IntBinaryOperator;
+import ua.edu.ucu.function.IntPredicate;
+import ua.edu.ucu.function.IntToIntStreamFunction;
+import ua.edu.ucu.function.IntUnaryOperator;
 import ua.edu.ucu.stream.*;
 
 public class StreamApp {
@@ -23,5 +27,49 @@ public class StreamApp {
         StringBuilder str = new StringBuilder();
         intStream.forEach(x -> str.append(x));
         return str.toString();
+    }
+
+    public static int streamMax(IntStream intStream) {
+        int max = intStream.max();
+        return max;
+    }
+
+    public static int streamMin(IntStream intStream) {
+        int min = intStream.min();
+        return min;
+    }
+    public static int streamSum(IntStream intStream) {
+        int sum = intStream.sum();
+        return sum;
+    }
+
+    public static int streamReduce(IntStream intStream,int identity, IntBinaryOperator op) {
+        int reduce = intStream.reduce(identity, op);
+        return reduce;
+    }
+
+    public static IntStream streamFilter(IntStream intStream, IntPredicate intPredicate) {
+        IntStream intStream1 = intStream.filter(intPredicate);
+        return intStream1;
+    }
+
+    public static IntStream streamMap(IntStream intStream, IntUnaryOperator intUnaryOperator) {
+        IntStream intStream1= intStream.map(intUnaryOperator);
+        return intStream1;
+    }
+
+    public static IntStream streamFlatMap(IntStream intStream, IntToIntStreamFunction toIntStreamFunction) {
+        IntStream intStream1 = intStream.flatMap(toIntStreamFunction);
+        return intStream1;
+    }
+
+    public static long streamCount(IntStream intStream) {
+        long count = intStream.count();
+        return count;
+    }
+
+    public static Double streamAverage(IntStream intStream) {
+        Double average = intStream.average();
+        return average;
     }
 }

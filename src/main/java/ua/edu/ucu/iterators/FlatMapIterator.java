@@ -22,7 +22,7 @@ public class FlatMapIterator implements Iterator<Integer>{
 
     @Override
     public boolean hasNext() {
-       return (iter.hasNext() || intStreamLen != 0);
+       return ( intStreamLen != 0  || iter.hasNext());
     }
 
     @Override
